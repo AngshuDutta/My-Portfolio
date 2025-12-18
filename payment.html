@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Payment Information - Portfolio</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            max-height: 100vh;
+
+            background-color: #1F252E;
+
+        }
+
+
+
+        /*nav */
+
+        header {
+
+            padding: 1.7rem 1rem;
+
+            background-color: #fff;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            max-width: 80%;
+
+            margin: auto;
+
+            align-items: center;
+
+            background-color: transparent;
+
+        }
+
+
+
+        .logo {
+
+            font-size: 1.3rem;
+
+            font-weight: 800;
+
+        }
+
+
+
+        .logo a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+        }
+
+
+
+        nav a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: .97rem;
+
+            font-weight: 600;
+
+            letter-spacing: .7px;
+
+            padding: 1rem;
+
+            padding: 0.4rem 1rem;
+
+        }
+
+
+
+        nav a.active,
+
+        nav a:hover {
+
+            color: #00E8F8;
+
+            border-radius: 1rem;
+
+            transition: all.3s ease-in-out;
+
+        }
+
+
+
+        #click {
+
+            display: none;
+
+        }
+
+
+
+        .menu i {
+
+            color: #00E8F8;
+
+        }
+
+
+
+        .menu {
+
+            display: none;
+
+        }
+
+
+
+        /* Nav */
+
+
+
+        section {
+
+            margin: 2rem 8.5rem;
+
+        }
+
+
+
+        /* Payment Section */
+        #payment {
+            padding: 3rem 0;
+            background-color: #1F252E;
+        }
+
+        #payment h2 {
+            font-size: 2rem;
+            color: #00E8F8;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .payment-section {
+            background-color: rgba(0, 232, 248, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid #00E8F8;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .payment-section h3 {
+            color: #00E8F8;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-intro {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .payment-intro p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .payment-method {
+            background-color: rgba(0, 232, 248, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 232, 248, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            border-color: #00E8F8;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 232, 248, 0.3);
+        }
+
+        .payment-method h4 {
+            color: #00E8F8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-detail {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .payment-detail strong {
+            color: #00E8F8;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .copy-btn {
+            background-color: rgba(0, 232, 248, 0.2);
+            color: #00E8F8;
+            border: 1px solid #00E8F8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: #00E8F8;
+            color: #1F252E;
+        }
+
+        .payment-note {
+            background-color: rgba(0, 232, 248, 0.05);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 2rem;
+            border-left: 3px solid #00E8F8;
+        }
+
+        .payment-note p {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .payment-note strong {
+            color: #00E8F8;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #00E8F8;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        @media only screen and (max-width:480px) {
+
+            .menu {
+
+                display: block;
+
+                font-size: 1.5rem;
+
+                font-weight: bold;
+
+                color: rgb(10, 231, 228);
+
+            }
+
+
+
+            header {
+
+                padding: 0.7rem 1rem;
+
+                align-items: center;
+
+                max-width: 100%;
+
+            }
+
+
+
+            nav {
+
+                position: absolute;
+
+                display: grid;
+
+                top: 75px;
+
+                text-align: center;
+
+                background-color: #1F252E;
+
+                left: -100%;
+
+                z-index: 1;
+
+                width: 100%;
+
+            }
+
+
+
+            #click:checked~nav {
+
+                left: 0%;
+
+                transition: all 0.3s ease;
+
+            }
+
+
+
+            section {
+
+                margin: 1rem 1.5rem;
+
+            }
+
+
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <header>
+
+        <div class="Portfolio">
+
+            <a href="webpage.html">Portfolio.</a>
+
+        </div>
+
+        <input type="checkbox" id="click">
+
+        <label for="click" class="mainicon">
+
+            <div class="menu">
+
+                <i class="bi bi-list"></i>
+
+            </div>
+
+        </label>
+
+        <nav>
+
+            <a href="webpage.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="skills.html">Skills</a>
+
+            <a href="portfolio.html">Portfolio</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Payment Section -->
+    <section id="payment">
+        <a href="contact.html" class="back-link"><i class="bi bi-arrow-left"></i> Back to Contact</a>
+        
+        <h2><i class="bi bi-credit-card-2-front-fill"></i> Payment Information</h2>
+        
+        <div class="payment-intro">
+            <p>I accept payments through multiple convenient methods. All payments are processed securely. Please ensure you have received confirmation before making any payment.</p>
+        </div>
+
+        <div class="payment-section">
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <h4><i class="bi bi-phone-fill"></i> UPI Payment</h4>
+                    <div class="payment-detail">
+                        <strong>UPI ID:</strong> 
+                        <span id="upi-id">-----------</span>
+                        <button class="copy-btn" onclick="copyToClipboard('-----------', this)">Copy</button>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Apps:</strong> <span style="color: #888;">Paytm, Google Pay, PhonePe, BHIM, etc.</span>
+                    </div>
+                </div>
+
+                <div class="payment-method">
+                    <h4><i class="bi bi-bank"></i> Bank Transfer</h4>
+                    <div class="payment-detail">
+                        <strong>Account Name:</strong> <span>Angshu Dutta</span>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Account Number:</strong> 
+                        <span id="acc-number">xxxxxxxxxxxxx</span>
+                        <button class="copy-btn" onclick="copyToClipboard('xxxxxxxxxxxxx', this)">Copy</button>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>IFSC Code:</strong> 
+                        <span id="ifsc">----------</span>
+                        <button class="copy-btn" onclick="copyToClipboard('----------', this)">Copy</button>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Bank Name:</strong> <span>Union Bank of India.</span>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Branch:</strong> <span>Nimta Bazaar, Belgharia, Kolkata-7000--.</span>
+                    </div>
+                </div>
+
+                <div class="payment-method">
+                    <h4><i class="bi bi-wallet2"></i> Other Methods</h4>
+                    <div class="payment-detail">
+                        <strong>PayPal:</strong> <span style="color: #888;">Available for international clients</span>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Cash:</strong> <span style="color: #888;">Accepted for local projects in Kolkata</span>
+                    </div>
+                    <div class="payment-detail">
+                        <strong>Cryptocurrency:</strong> <span style="color: #888;">BTC, ETH (on request)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-note">
+                <p><strong>📋 Payment Terms:</strong></p>
+                <p>• For projects above ₹10,000: 50% advance payment required before work begins</p>
+                <p>• For projects below ₹10,000: Full payment can be made after project completion</p>
+                <p>• Payment confirmation will be sent via email/WhatsApp within 24 hours</p>
+                <p>• All payments are non-refundable once work has commenced, unless specified in the project agreement</p>
+                <p>• For international clients, payment can be made via PayPal or bank transfer (additional charges may apply)</p>
+                <p style="margin-top: 1rem;"><strong>⚠️ Important:</strong> Always verify payment details with me directly before making any transfer. I will never ask for payment through unofficial channels.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#00E8F8';
+                button.style.color = '#1F252E';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = 'rgba(0, 232, 248, 0.2)';
+                    button.style.color = '#00E8F8';
+                }, 2000);
+            }).catch(function(err) {
+                alert('Failed to copy: ' + err);
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>
+

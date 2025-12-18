@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>Contact - Portfolio</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            max-height: 100vh;
+
+            background-color: #1F252E;
+
+        }
+
+
+
+        /*nav */
+
+        header {
+
+            padding: 1.7rem 1rem;
+
+            background-color: #fff;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            max-width: 80%;
+
+            margin: auto;
+
+            align-items: center;
+
+            background-color: transparent;
+
+        }
+
+
+
+        .logo {
+
+            font-size: 1.3rem;
+
+            font-weight: 800;
+
+        }
+
+
+
+        .logo a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+        }
+
+
+
+        nav a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: .97rem;
+
+            font-weight: 600;
+
+            letter-spacing: .7px;
+
+            padding: 1rem;
+
+            padding: 0.4rem 1rem;
+
+        }
+
+
+
+        nav a.active,
+
+        nav a:hover {
+
+            color: #00E8F8;
+
+            border-radius: 1rem;
+
+            transition: all.3s ease-in-out;
+
+        }
+
+
+
+        #click {
+
+            display: none;
+
+        }
+
+
+
+        .menu i {
+
+            color: #00E8F8;
+
+        }
+
+
+
+        .menu {
+
+            display: none;
+
+        }
+
+
+
+        /* Nav */
+
+
+
+        section {
+
+            margin: 2rem 8.5rem;
+
+        }
+
+
+
+        /* Contact Section */
+        #contact {
+            padding: 3rem 0;
+            background-color: #1F252E;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+            color: #00E8F8;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: rgba(0, 232, 248, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            color: #00E8F8;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #2a3340;
+            border: 1px solid #00E8F8;
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 232, 248, 0.5);
+        }
+
+        .submit-btn {
+            background-color: #00E8F8;
+            color: #1F252E;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 232, 248, 0.5);
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-intro p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        .contact-intro h3 {
+            color: #00E8F8;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-section {
+            background-color: rgba(0, 232, 248, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid rgba(0, 232, 248, 0.2);
+        }
+
+        .info-section h4 {
+            color: #00E8F8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-section li:before {
+            content: "→";
+            color: #00E8F8;
+            position: absolute;
+            left: 0;
+        }
+
+        .availability-badge {
+            display: inline-block;
+            background-color: rgba(0, 232, 248, 0.2);
+            color: #00E8F8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background-color: rgba(0, 232, 248, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #00E8F8;
+        }
+
+        .contact-info h3 {
+            color: #00E8F8;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .contact-item i {
+            color: #00E8F8;
+            font-size: 1.3rem;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #00E8F8;
+        }
+
+        .contact-item span {
+            color: #ccc;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 232, 248, 0.2);
+        }
+
+        .social-links h4 {
+            color: #00E8F8;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: #00E8F8;
+            font-size: 1.5rem;
+            border: 1.6px solid #00E8F8;
+            border-radius: 50%;
+            padding: 0.5rem;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #1F252E;
+            background-color: #00E8F8;
+            transform: translateY(-3px);
+        }
+
+        @media only screen and (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        @media only screen and (max-width:480px) {
+
+            .menu {
+
+                display: block;
+
+                font-size: 1.5rem;
+
+                font-weight: bold;
+
+                color: rgb(10, 231, 228);
+
+            }
+
+
+
+            header {
+
+                padding: 0.7rem 1rem;
+
+                align-items: center;
+
+                max-width: 100%;
+
+            }
+
+
+
+            nav {
+
+                position: absolute;
+
+                display: grid;
+
+                top: 75px;
+
+                text-align: center;
+
+                background-color: #1F252E;
+
+                left: -100%;
+
+                z-index: 1;
+
+                width: 100%;
+
+            }
+
+
+
+            #click:checked~nav {
+
+                left: 0%;
+
+                transition: all 0.3s ease;
+
+            }
+
+
+
+            section {
+
+                margin: 1rem 1.5rem;
+
+            }
+
+
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <header>
+
+        <div class="Portfolio">
+
+            <a href="webpage.html">Portfolio.</a>
+
+        </div>
+
+        <input type="checkbox" id="click">
+
+        <label for="click" class="mainicon">
+
+            <div class="menu">
+
+                <i class="bi bi-list"></i>
+
+            </div>
+
+        </label>
+
+        <nav>
+
+            <a href="webpage.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="skills.html">Skills</a>
+
+            <a href="portfolio.html">Portfolio</a>
+
+            <a href="contact.html" class="active">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        
+        <div class="contact-intro">
+            <h3>Let's Work Together!</h3>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to collaborate. Whether you need photography services, video editing, web development, or just want to connect with a fellow creative, I'd love to hear from you!</p>
+            <p style="margin-top: 1rem; color: #00E8F8; font-weight: 500;">💡 Quick tip: For urgent matters, WhatsApp or phone calls work best. For project inquiries, email is preferred as it helps me keep track of details better.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <div class="contact-item">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:angshudutta83@gmail.com">angshudutta83@gmail.com</a>
+                        <br><span style="font-size: 0.85rem; color: #888;">(Preferred method)</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-telephone-fill"></i>
+                    <div>
+                        <strong>Phone / WhatsApp</strong><br>
+                        <a href="tel:+919330929837">+91 93309 29 837</a>
+                        <span class="availability-badge">Available</span>
+                        <br><span style="font-size: 0.85rem; color: #888;">Also on WhatsApp</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <div>
+                        <strong>Location</strong><br>
+                        <span>119, M.B.Road, P.O.: Nimta,<br>Opp. Subhas Sangha Club(Nimta,Blegharia).<br>Kolkata-700049<br>North 24 Parganas, West Bengal, India</span><br>
+                        <span style="font-size: 0.9rem; color: #888;">Available for remote work worldwide</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-clock-fill"></i>
+                    <div>
+                        <strong>Response Time</strong><br>
+                        <span>Email: Within 24-48 hours</span><br>
+                        <span style="font-size: 0.9rem; color: #888;">Phone/WhatsApp: Same day if urgent</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <div>
+                        <strong>Working Hours</strong><br>
+                        <span>Monday - Friday: 3 AM - 12 AM IST<br>Saturday: 9 AM - 9 AM IST</span><br>
+                        <span style="font-size: 0.9rem; color: #888;">Sunday: Available for urgent projects<br>and non-paid works.</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h4>Connect on Social Media</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/AngshuDutta" target="_blank" title="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://instagram.com/ansh_lost_in_the_dark" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/angshu-dutta-6aa4a0396" target="_blank" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://facebook.com/shadowslayer224466" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="color: #00E8F8; margin-bottom: 1.5rem;">Send a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone / WhatsApp (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 93309 29 837">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="e.g., Photography Project, Web Development, Collaboration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project, timeline, budget (if applicable), or just say hello! The more details you provide, the better I can help you." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="info-section">
+                    <h4>What I'm Looking For</h4>
+                    <ul>
+                        <li>Photography projects (portraits, events, product photography)</li>
+                        <li>Video editing and post-production work</li>
+                        <li>Web development and design projects</li>
+                        <li>Creative collaborations and partnerships</li>
+                        <li>Gaming content creation and streaming</li>
+                        <li>Freelance opportunities in any of my skill areas</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h4>What to Include in Your Message</h4>
+                    <ul>
+                        <li>Project type and scope</li>
+                        <li>Timeline and deadlines</li>
+                        <li>Budget range (if applicable)</li>
+                        <li>Any specific requirements or preferences</li>
+                        <li>How you found me or why you're reaching out</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Information Link -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="payment.html" style="display: inline-block; background-color: #00E8F8; color: #1F252E; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                <i class="bi bi-credit-card-2-front-fill"></i> View Payment Information
+            </a>
+            <p style="color: #888; margin-top: 1rem; font-size: 0.9rem;">Click here to see all payment methods, bank details, and payment terms</p>
+        </div>
+    </section>
+
+
+
+
+</body>
+
+</html>
+
