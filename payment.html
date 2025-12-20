@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <title>Payment Information - Portfolio</title>
+    <title>Payment Information - SHADOW</title>
 
     <style>
 
@@ -24,63 +24,102 @@
             margin: 0;
 
             padding: 0;
+            box-sizing: border-box;
 
         }
 
-
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
 
             font-family: 'Poppins', sans-serif;
 
-            max-height: 100vh;
-
-            background-color: #1F252E;
+            background: linear-gradient(135deg, #1F252E 0%, #0f1419 100%);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
 
         }
 
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 232, 248, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 195, 248, 0.05) 0%, transparent 50%);
+            animation: particleFloat 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
 
+        @keyframes particleFloat {
+            0%, 100% {
+                background: radial-gradient(circle at 20% 50%, rgba(0, 232, 248, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 80%, rgba(0, 195, 248, 0.05) 0%, transparent 50%);
+            }
+            50% {
+                background: radial-gradient(circle at 80% 50%, rgba(0, 232, 248, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 20% 80%, rgba(0, 195, 248, 0.05) 0%, transparent 50%);
+            }
+        }
 
         /*nav */
 
         header {
 
-            padding: 1.7rem 1rem;
+            padding: 1rem 2rem;
 
-            background-color: #fff;
+            background: rgba(31, 37, 46, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
 
             display: flex;
 
             justify-content: space-between;
 
-            max-width: 80%;
-
-            margin: auto;
-
             align-items: center;
-
-            background-color: transparent;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 232, 248, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
         }
 
+        .SHADOW,
+        .logo,
+        .Portfolio {
 
-
-        .logo {
-
-            font-size: 1.3rem;
+            font-size: 1.5rem;
 
             font-weight: 800;
 
         }
 
+        .SHADOW a,
+        .logo a,
+        .Portfolio a {
 
-
-        .logo a {
-
-            color: #fff;
-
+            background: linear-gradient(135deg, #00E8F8, #00c2f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+            transition: all 0.3s ease;
 
+        }
+
+        .SHADOW a:hover,
+        .logo a:hover,
+        .Portfolio a:hover {
+            filter: drop-shadow(0 0 10px rgba(0, 232, 248, 0.5));
         }
 
 
@@ -91,33 +130,42 @@
 
             text-decoration: none;
 
-            font-size: .97rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
 
-            font-weight: 600;
-
-            letter-spacing: .7px;
-
-            padding: 1rem;
-
-            padding: 0.4rem 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
 
         }
 
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00E8F8, #00c2f8);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
+        nav a:hover::before,
+        nav a.active::before {
+            width: 80%;
+        }
 
         nav a.active,
 
         nav a:hover {
 
             color: #00E8F8;
-
-            border-radius: 1rem;
-
-            transition: all.3s ease-in-out;
+            background: rgba(0, 232, 248, 0.1);
 
         }
-
-
 
         #click {
 
@@ -125,33 +173,20 @@
 
         }
 
-
-
-        .menu i {
-
-            color: #00E8F8;
-
+        .mainicon {
+            display: none;
         }
-
-
 
         .menu {
 
             display: none;
+            color: #00E8F8;
+            font-size: 1.5rem;
+            cursor: pointer;
 
         }
 
-
-
-        /* Nav */
-
-
-
-        section {
-
-            margin: 2rem 8.5rem;
-
-        }
+        /* Payment Section */
 
 
 
@@ -168,15 +203,36 @@
             text-align: center;
         }
 
+        .payment-intro {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .payment-intro p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
         .payment-section {
-            background-color: rgba(0, 232, 248, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
+            background: rgba(0, 232, 248, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 232, 248, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             margin-top: 2rem;
-            border-left: 4px solid #00E8F8;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         .payment-section h3 {
@@ -188,97 +244,146 @@
             gap: 0.5rem;
         }
 
-        .payment-intro {
-            text-align: center;
-            color: #fff;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .payment-intro p {
-            color: #ccc;
-            line-height: 1.8;
-            margin-top: 1rem;
-        }
-
         .payment-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .payment-method {
-            background-color: rgba(0, 232, 248, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
+            background: rgba(0, 232, 248, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
             border: 1px solid rgba(0, 232, 248, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInScale 0.8s ease-out backwards;
+        }
+
+        .payment-method:nth-child(1) { animation-delay: 0.4s; }
+        .payment-method:nth-child(2) { animation-delay: 0.5s; }
+        .payment-method:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .payment-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00E8F8, #00c2f8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .payment-method:hover::before {
+            opacity: 1;
         }
 
         .payment-method:hover {
             border-color: #00E8F8;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 232, 248, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 232, 248, 0.3);
+            background: rgba(0, 232, 248, 0.12);
         }
 
         .payment-method h4 {
             color: #00E8F8;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #00E8F8, #00c2f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .payment-method h4 i {
+            background: linear-gradient(135deg, #00E8F8, #00c2f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
         }
 
         .payment-detail {
-            color: #fff;
-            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.8rem;
             font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .payment-detail:hover {
+            transform: translateX(5px);
+            color: #fff;
         }
 
         .payment-detail strong {
             color: #00E8F8;
             display: inline-block;
             min-width: 120px;
+            font-weight: 600;
         }
 
         .copy-btn {
-            background-color: rgba(0, 232, 248, 0.2);
+            background: linear-gradient(135deg, rgba(0, 232, 248, 0.2), rgba(0, 195, 248, 0.1));
             color: #00E8F8;
-            border: 1px solid #00E8F8;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
+            border: 1px solid rgba(0, 232, 248, 0.5);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
             font-size: 0.85rem;
             cursor: pointer;
             margin-left: 0.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
         }
 
         .copy-btn:hover {
-            background-color: #00E8F8;
+            background: linear-gradient(135deg, #00E8F8, #00c2f8);
             color: #1F252E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 232, 248, 0.4);
         }
 
         .payment-note {
-            background-color: rgba(0, 232, 248, 0.05);
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin-top: 2rem;
+            background: rgba(0, 232, 248, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            border: 1px solid rgba(0, 232, 248, 0.2);
             border-left: 3px solid #00E8F8;
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
         }
 
         .payment-note p {
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin: 0.8rem 0;
         }
 
         .payment-note strong {
             color: #00E8F8;
+            font-weight: 600;
         }
 
         .back-link {
@@ -287,88 +392,158 @@
             text-decoration: none;
             margin-bottom: 2rem;
             transition: all 0.3s ease;
+            animation: fadeInDown 0.8s ease-out;
         }
 
         .back-link:hover {
             color: #fff;
+            transform: translateX(-5px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background: rgba(15, 20, 25, 0.8);
+            border-top: 1px solid rgba(0, 232, 248, 0.2);
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: #00E8F8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #00c2f8;
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        #payment {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #payment h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #00E8F8;
+            margin-bottom: 3rem;
+            text-align: center;
+            animation: fadeInDown 1s ease-out;
+            background: linear-gradient(135deg, #00E8F8, #00c2f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section {
+            margin: 0;
+            padding: 8rem 2rem 4rem;
+            min-height: auto;
+            position: relative;
+            z-index: 1;
         }
 
         @media only screen and (max-width: 768px) {
             .payment-methods {
                 grid-template-columns: 1fr;
             }
+            
+            section {
+                padding: 7rem 1.5rem 3rem;
+            }
         }
 
-
-
-        @media only screen and (max-width:480px) {
+        @media only screen and (max-width: 480px) {
+            .mainicon {
+                display: block !important;
+            }
 
             .menu {
-
                 display: block;
-
                 font-size: 1.5rem;
-
                 font-weight: bold;
-
-                color: rgb(10, 231, 228);
-
+                color: #00E8F8;
             }
-
-
 
             header {
-
                 padding: 0.7rem 1rem;
-
                 align-items: center;
-
                 max-width: 100%;
-
             }
-
-
 
             nav {
-
                 position: absolute;
-
                 display: grid;
-
-                top: 75px;
-
+                top: 60px;
                 text-align: center;
-
-                background-color: #1F252E;
-
+                background: rgba(31, 37, 46, 0.95);
+                backdrop-filter: blur(10px);
                 left: -100%;
-
-                z-index: 1;
-
+                z-index: 99;
                 width: 100%;
-
+                transition: all 0.3s ease;
             }
-
-
 
             #click:checked~nav {
-
                 left: 0%;
-
                 transition: all 0.3s ease;
-
             }
 
-
+            nav a {
+                padding: 1rem;
+                border-radius: 0;
+            }
 
             section {
-
-                margin: 1rem 1.5rem;
-
+                padding: 6rem 1.5rem 3rem;
             }
 
+            .payment-intro {
+                font-size: 0.95rem;
+            }
 
+            .payment-section {
+                padding: 1.5rem;
+            }
 
+            .payment-method {
+                padding: 1.5rem;
+            }
+
+            #payment h2 {
+                font-size: 1.8rem;
+            }
         }
 
     </style>
@@ -381,9 +556,9 @@
 
     <header>
 
-        <div class="Portfolio">
+        <div class="SHADOW">
 
-            <a href="webpage.html">Portfolio.</a>
+            <a href="webpage.html">SHADOW.</a>
 
         </div>
 
@@ -508,9 +683,14 @@
         }
     </script>
 
-
+    <footer>
+        <p>&copy; 2025 Angshu's Editor Platform. All rights reserved.</p>
+        <p>Designed & developed with passion</p>
+    </footer>
 
 </body>
 
 </html>
+
+
 
